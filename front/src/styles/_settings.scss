@@ -1,3 +1,39 @@
+$bleu_nuit : #00004D;
+$or : #D7C378;
+$corail : #FF5757;
+$bleu_olympique : #0282C8;
+$jaune_olympique : #00A651;
+$vert_olympique : #00A651;
+$rouge_olympique : #ED354F;
+$noir : #000000;
+$blanc : #FFFFFF;
+
+@font-face {
+    font-family: "thin";
+    src: url(../assets/fonts/Poppins-Thin.ttf);
+}
+
+@font-face {
+    font-family: "regular";
+    src: url(../assets/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: "semibold";
+    src: url(../assets/fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(../assets/fonts/Poppins-Medium.ttf);
+}
+
+$thin: "thin", sans-serif;
+$regular: "regular", sans-serif;
+$semibold: "semibold", sans-serif;
+$medium: "medium", sans-serif;
+
+
 * {
     margin: 0;
     padding: 0;
