@@ -1,7 +1,13 @@
+.pre_container_error footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 .container_error {
     display: flex;
     position: relative;
-    margin: 5%;
+    margin: 3%;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
@@ -9,10 +15,6 @@
 .container_error .title_login {
     display: flex;
     flex-wrap: wrap;
-}
-
-.container_error #responsive_margin {
-    color: black;
 }
 
 .error_message {
@@ -30,6 +32,10 @@
     font-family: "thin", sans-serif;
     text-align: center;
     transition: .2s;
+}
+
+.error_message a {
+    color: $blanc;
 }
 
 .error_message p:hover {
