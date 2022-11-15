@@ -25,8 +25,8 @@ const Header = () => {
                 <div className="but_nav">
                     <button onClick={handleHome}>Accueil</button>
                     <button>Compte</button>
-                    <button onClick={handleLike}>Like</button>
-                    <button onClick={handleLogin}>Login</button>
+                    <button onClick={handleLike}>Likes</button>
+                    <button onClick={handleLogin}>Se connecter</button>
                 </div>
             </div>
         </>
