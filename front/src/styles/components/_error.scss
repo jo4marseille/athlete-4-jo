@@ -7,13 +7,14 @@
 .container_error {
     display: flex;
     position: relative;
-    margin: 3%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
 }
 
 
 .container_error .title_login {
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
 }

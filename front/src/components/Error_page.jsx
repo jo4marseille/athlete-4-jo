@@ -5,8 +5,10 @@ import Footer from './Footer';
 
 const Error_page = () => {
     return (
+
+    <>
+        <Header/>
         <div className='pre_container_error'>
-            <Header/>
             <div className="container_error">
                 <div className="title_login">
                     <img src="./img/logonoir.png" alt="logo not load" />
@@ -22,8 +24,9 @@ const Error_page = () => {
                     </p>
                 </div>
             </div>
-            <Footer/>
         </div>
+        <Footer/>
+    </>
     );
 };
 
