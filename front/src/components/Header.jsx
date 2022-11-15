@@ -8,12 +8,19 @@ const Header = () => {
     const handleHome = () => {
       navigate('/home');
     }
+
+    const handleAccount = () => {
+        navigate('/compte');
+      } 
+
     const handleLike = () => {
         navigate('/like');
       }
+
       const handleLogin = () => {
         navigate('/');
       }
+
     const navigate = useNavigate();
 
     return (
@@ -24,8 +31,8 @@ const Header = () => {
                 </div>
                 <div className="but_nav">
                     <button onClick={handleHome}>Accueil</button>
-                    <button>Compte</button>
-                    <button onClick={handleLike}>Likes</button>
+                    <button onClick={handleAccount}>Compte</button>
+                    <button onClick={handleLike}>Mes likes</button>
                     <button onClick={handleLogin}>Se connecter</button>
                 </div>
             </div>
