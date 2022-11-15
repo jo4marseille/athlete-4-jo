@@ -203,3 +203,35 @@
     //background-color: blue;
     //justify-content: center;
 }
+
+.footer {
+    /*
+    bottom: 1000;
+    position: relative;
+    z-index: 30;*/
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    margin-top: 120px;
+    background-color: white;
+}
+
+.footer a {
+    flex-basis: 30%;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer img {
+    height: 70px;
+    object-fit: contain;
+}
+
+.smaller {
+    height: 40px !important;
+}
