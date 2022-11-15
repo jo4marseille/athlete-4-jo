@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Footer from './Footer';
 
 const Login_page = () => {
 
@@ -72,6 +73,7 @@ const Login_page = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     );
 };
