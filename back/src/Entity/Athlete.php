@@ -35,7 +35,7 @@ class Athlete
 
     #[ORM\Column]
     #[Groups(['api_athlete_browse'])]
-    private ?bool $gender = null;
+    private ?int $gender = null;
 
     #[ORM\ManyToOne(inversedBy: 'athletes')]
     private ?Delegation $codeDelegation = null;
@@ -128,12 +128,12 @@ class Athlete
         return $this;
     }
 
-    public function isGender(): ?bool
+    public function getGender(): ?int
     {
         return $this->gender;
     }
 
-    public function setGender(bool $gender): self
+    public function setGender(int $gender): self
     {
         $this->gender = $gender;
 

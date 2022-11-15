@@ -168,14 +168,12 @@ class AppFixtures extends Fixture
                 $athlete->setFirstname($faker->firstNameMale());
                 $athlete->setAge($faker->numberBetween(20, 40));
                 $athlete->setImage("todo");
-                $athlete->setGender(false);
+                $athlete->setGender(0);
                 $athlete->setNationality($country);
                 $athlete->setCodeDelegation($delegation);
                 $athlete->setCity($cityFaker[$faker->numberBetween(0, count($cityFaker) - 1)]);
                 if ($athlete->getCity() === "Marseille") {
                     $athlete->setFeature(true);
-                    echo $athlete->getCity();
-                    echo "helo";
                 }
                 $athlete->addEvent($eventList[$faker->numberBetween(0, count($eventList) - 1)]);
                 $athlete->addEpreuve($epreuveMaleList[$faker->numberBetween(0, count($epreuveMaleList) - 1)]);
@@ -191,10 +189,13 @@ class AppFixtures extends Fixture
                 $athlete->setFirstname($faker->firstNameFemale());
                 $athlete->setAge($faker->numberBetween(20, 40));
                 $athlete->setImage("todo");
-                $athlete->setGender(true);
+                $athlete->setGender(1);
                 $athlete->setNationality($country);
                 $athlete->setCodeDelegation($delegation);
                 $athlete->setCity($cityFaker[$faker->numberBetween(0, count($cityFaker) - 1)]);
+                if ($athlete->getCity() === "Marseille") {
+                    $athlete->setFeature(true);
+                }
                 $athlete->addEpreuve($epreuveFemaleList[$faker->numberBetween(0, count($epreuveFemaleList) - 1)]);
 
                 $athleteList[] = $athlete;
