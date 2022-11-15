@@ -1,3 +1,8 @@
+.pre_container_error {
+    background-image: url(../../assets/img/login_back.jpg);
+    background-size: cover;
+}
+
 .pre_container_error footer {
     position: absolute;
     bottom: 0;
@@ -16,6 +21,7 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 
 .error_message {
     font-weight: bold;
