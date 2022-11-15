@@ -1,6 +1,20 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+
+
 
 const Header = () => {
+
+    const handleHome = () => {
+      navigate('/home');
+    }
+    const handleLike = () => {
+        navigate('/like');
+      }
+      const handleLogin = () => {
+        navigate('/');
+      }
+    const navigate = useNavigate();
 
     return (
         <>
@@ -9,9 +23,10 @@ const Header = () => {
                     <img id='logo_nav' src="./img/real3.png" alt="logo not load" />
                 </div>
                 <div className="but_nav">
-                    <button>Accueil</button>
+                    <button onClick={handleHome}>Accueil</button>
                     <button>Compte</button>
-                    <button>Like</button>
+                    <button onClick={handleLike}>Like</button>
+                    <button onClick={handleLogin}>Login</button>
                 </div>
             </div>
         </>

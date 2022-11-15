@@ -1,24 +1,23 @@
 .pre_container_error {
-    background-image: url(../../assets/img/login_back.jpg);
-    background-size: cover;
-}
-
-.pre_container_error footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+	width: 100%;
+	height: 100vh;
+	background-image: url(../../assets/img/login_back.jpg);
+	background-size: cover;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 .container_error {
     display: flex;
     position: relative;
-    margin: 3%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    
 }
 
 
 .container_error .title_login {
+    margin-top: 70px;
     display: flex;
     flex-wrap: wrap;
 }
