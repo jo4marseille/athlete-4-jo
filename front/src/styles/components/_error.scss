@@ -1,8 +1,3 @@
-.pre_container_error {
-    background-image: url(../../assets/img/login_back.jpg);
-    background-size: cover;
-}
-
 .pre_container_error footer {
     position: absolute;
     bottom: 0;
@@ -42,7 +37,7 @@
 }
 
 .error_message a {
-    color: $blanc;
+    color: $noir;
 }
 
 .error_message p:hover {
