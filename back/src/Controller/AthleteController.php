@@ -6,6 +6,8 @@ use App\Repository\AthleteRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,6 +26,15 @@ class AthleteController extends AbstractController
     public function browse(AthleteRepository $athleteRepository): JsonResponse
     {
         $allAthletes = $athleteRepository->findAll();
+        return $this->json($allAthletes, Response::HTTP_OK, [], ['groups' => 'api_athlete_browse']);
+    }
+
+    /**
+     * @Route("/city", name="browseByCity_athlete", methods={"GET"})
+     */
+    public function browseByCity(AthleteRepository $athleteRepository): JsonResponse
+    {
+        $allAthletes = $athleteRepository->findByCity("Marseille");
         return $this->json($allAthletes, Response::HTTP_OK, [], ['groups' => 'api_athlete_browse']);
     }
 
@@ -61,6 +72,7 @@ class AthleteController extends AbstractController
 
     /**
      * @Route("/like/{idAthlete}/{idUser}", name="editLike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
+     * @IsGranted("ROLE_USER")
      */
     public function editLike(ValidatorInterface $validator, $idAthlete, $idUser, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
     {
@@ -100,6 +112,7 @@ class AthleteController extends AbstractController
 
     /**
      * @Route("/dislike/{idAthlete}/{idUser}", name="editDislike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
+     * @IsGranted("ROLE_USER")
      */
     public function editDislike(ValidatorInterface $validator, int $idAthlete, $idUser, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
     {
