@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-const Error = () => {
+const Card_player = () => {
     return (
         <div>
 
@@ -9,4 +8,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default Card_player;
