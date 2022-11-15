@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 const Register_page = () => {
     return (
@@ -28,7 +29,7 @@ const Register_page = () => {
                 </div>
               </div>
             </div>
-
+          <Footer/>
         </>
     );
 };
