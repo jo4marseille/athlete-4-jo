@@ -98,10 +98,9 @@ body {
       
     }
     &[type="text"]:focus, &[type="email"]:focus, &[type="password"]:focus {
-
-	  -webkit-box-shadow: 0 0 2px 1px $vert_olympique;
-	  -moz-box-shadow: 0 0 2px 1px $vert_olympique;
-	  box-shadow: 0 0 2px 1px $vert_olympique;
+      -webkit-box-shadow: 0 0 2px 1px $vert_olympique;
+      -moz-box-shadow: 0 0 2px 1px $vert_olympique;
+      box-shadow: 0 0 2px 1px $vert_olympique;
       border: 1px solid $vert_olympique;
       background: #fafafa;
 
@@ -125,10 +124,10 @@ body {
 		-ms-transition: all 0.30s ease-in-out;
 		transition: all 0.30s ease-in-out;
 		&:hover {
-			background: darken($jaune_olympique,7%);
+			background: darken($vert_olympique,7%);
 		}
 		&:focus {
-			background: darken($jaune_olympique,7%);
+			background: darken($vert_olympique,7%);
 		}
 	}    
   }
