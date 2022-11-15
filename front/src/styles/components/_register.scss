@@ -1,11 +1,12 @@
-$yellow:#ebb53e;
 $black:#000000;
 $grey:#cccccc;
 
 
+
 body {
 	font-size: 14px;
-	background: #f2f2f2;
+	background-image: url(../../assets/img/login_back.jpg);
+	background-size: cover;
 }
 .clearfix {
 	&:after {
@@ -26,7 +27,7 @@ body {
 	margin: 8% auto 0;
 	position: relative;
 	z-index: 1;
-	border-top: 5px solid $yellow;
+	border-top: 5px solid $rouge_olympique;
 	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	-moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
@@ -86,7 +87,7 @@ body {
       width: 100%;
       padding: 8px 10px 9px 10px;
       height: 35px;
-      border: 1px solid $grey;
+      border: 1px solid $bleu_olympique;
       box-sizing: border-box;
       outline: none;
       -webkit-transition: all 0.30s ease-in-out;
@@ -100,16 +101,16 @@ body {
       
     }
     &[type="text"]:focus, &[type="email"]:focus, &[type="password"]:focus {
-      -webkit-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      -moz-box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      box-shadow: 0 0 2px 1px rgba(255, 169, 0, 0.5);
-      border: 1px solid $yellow;
+      -webkit-box-shadow: 0 0 2px 1px $vert_olympique;
+      -moz-box-shadow: 0 0 2px 1px $vert_olympique;
+      box-shadow: 0 0 2px 1px $vert_olympique;
+      border: 1px solid $vert_olympique;
       background: #fafafa;
 
     }
     &[type="submit"] {
         border-radius: 10px;
-		background: $yellow;
+		background: $jaune_olympique;
 		height: 35px;
 		line-height: 35px;
 		width: 100%;
@@ -124,10 +125,10 @@ body {
 		-ms-transition: all 0.30s ease-in-out;
 		transition: all 0.30s ease-in-out;
 		&:hover {
-			background: darken($yellow,7%);
+			background: darken($vert_olympique,7%);
 		}
 		&:focus {
-			background: darken($yellow,7%);
+			background: darken($vert_olympique,7%);
 		}
 	}    
   }
