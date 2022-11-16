@@ -1,9 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 const Error_page = () => {
     return (
-        <>
+
+    <>
+        <Header/>
+        <div className='pre_container_error'>
             <div className="container_error">
                 <div className="title_login">
                     <img src="./img/logonoir.png" alt="logo not load" />
@@ -15,11 +20,13 @@ const Error_page = () => {
                 <div className='error_message'>
                     <h1>Page Introuvable</h1>
                     <p>
-                        <Link to="/" style={{textDecoration: 'none'}}>Retourner à l'accueil</Link>
+                        <Link to="/home" style={{textDecoration: 'none'}}>Retour à l'accueil</Link>
                     </p>
                 </div>
             </div>
-        </>
+        </div>
+        <Footer/>
+    </>
     );
 };
 
