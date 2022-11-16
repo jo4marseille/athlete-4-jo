@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security as CoreSecurity;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
@@ -36,6 +37,20 @@ class AthleteController extends AbstractController
     {
         $allAthletes = $athleteRepository->findByCity("Marseille");
         return $this->json($allAthletes, Response::HTTP_OK, [], ['groups' => 'api_athlete_browse']);
+    }
+
+    /**
+     * @Route("/like", name="browseByLike_athlete", methods={"GET"})
+     * @IsGranted("ROLE_USER")
+     */
+    public function browseByLike(UserRepository $userRepository, CoreSecurity $security): JsonResponse
+    {
+            $user = $security->getUser();
+            $userId =$user->getId();
+            $basicUser = $userRepository->find($userId);
+            $allAthletes = $basicUser->getAthletes();
+
+        return $this->json($allAthletes, Response::HTTP_OK, [], ['groups' => 'api_athlete_browseByLike']);
     }
 
     /**
@@ -71,18 +86,17 @@ class AthleteController extends AbstractController
     }
 
     /**
-     * @Route("/like/{idAthlete}/{idUser}", name="editLike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
+     * @Route("/like/{idAthlete}", name="editLike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
      * @IsGranted("ROLE_USER")
      */
-    public function editLike(ValidatorInterface $validator, $idAthlete, $idUser, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
+    public function editLike(ValidatorInterface $validator, $idAthlete, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository, CoreSecurity $security): Response
     {
+        $user = $security->getUser();
+        $userId =$user->getId();
+        $basicUser = $userRepository->find($userId);
+
         $athlete = $athleteRepository->find($idAthlete);
-        $currentUser = $userRepository->find($idUser);
-        $currentUser->addAthlete($athlete);
-        
-        if (is_null($currentUser)) {
-            return $this->getNotFoundResponse();
-        }
+        $basicUser->addAthlete($athlete);
 
         if (is_null($athlete)) {
             return $this->getNotFoundResponse();
@@ -111,18 +125,17 @@ class AthleteController extends AbstractController
     }
 
     /**
-     * @Route("/dislike/{idAthlete}/{idUser}", name="editDislike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
+     * @Route("/dislike/{idAthlete}", name="editDislike", methods={"PATCH"}, requirements={"idAthlete"="\d+"})
      * @IsGranted("ROLE_USER")
      */
-    public function editDislike(ValidatorInterface $validator, int $idAthlete, $idUser, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository): Response
+    public function editDislike(ValidatorInterface $validator, int $idAthlete, AthleteRepository $athleteRepository, EntityManagerInterface $entityManager, UserRepository $userRepository, CoreSecurity $security): Response
     {
+        $user = $security->getUser();
+        $userId =$user->getId();
+        $basicUser = $userRepository->find($userId);
+
         $athlete = $athleteRepository->find($idAthlete);
-        $currentUser = $userRepository->find($idUser);
-        $currentUser->removeAthlete($athlete);
-        
-        if (is_null($currentUser)) {
-            return $this->getNotFoundResponse();
-        }
+        $basicUser->removeAthlete($athlete);
 
         if (is_null($athlete)) {
             return $this->getNotFoundResponse();

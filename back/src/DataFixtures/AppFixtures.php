@@ -168,7 +168,7 @@ class AppFixtures extends Fixture
                 $athlete->setFirstname($faker->firstNameMale());
                 $athlete->setAge($faker->numberBetween(20, 40));
                 $athlete->setImage("todo");
-                $athlete->setGender(0);
+                $athlete->setGender($athleteNumber % 2 === 0 ? 0:1);
                 $athlete->setNationality($country);
                 $athlete->setCodeDelegation($delegation);
                 $athlete->setCity($cityFaker[$faker->numberBetween(0, count($cityFaker) - 1)]);
@@ -182,24 +182,7 @@ class AppFixtures extends Fixture
                 $athleteList[] = $athlete;
             }
 
-            for ($athleteNumber = 0; $athleteNumber < $nbrAthlete; $athleteNumber++) {
-                $athlete = new Athlete;
-                $manager->persist($athlete);
-                $athlete->setLastname($faker->lastName());
-                $athlete->setFirstname($faker->firstNameFemale());
-                $athlete->setAge($faker->numberBetween(20, 40));
-                $athlete->setImage("todo");
-                $athlete->setGender(1);
-                $athlete->setNationality($country);
-                $athlete->setCodeDelegation($delegation);
-                $athlete->setCity($cityFaker[$faker->numberBetween(0, count($cityFaker) - 1)]);
-                if ($athlete->getCity() === "Marseille") {
-                    $athlete->setFeature(true);
-                }
-                $athlete->addEpreuve($epreuveFemaleList[$faker->numberBetween(0, count($epreuveFemaleList) - 1)]);
-
-                $athleteList[] = $athlete;
-            }
+        
         }
             
         $manager->flush();
