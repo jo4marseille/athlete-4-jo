@@ -31,6 +31,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\ManyToMany(targetEntity: Athlete::class, mappedBy: 'userLike')]
+    #[Groups(['api_athlete_browseByLike'])]
     private Collection $athletes;
 
     public function __construct()

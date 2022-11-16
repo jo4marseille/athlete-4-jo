@@ -14,53 +14,53 @@ class Athlete
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $firstname = null;
 
     #[ORM\Column]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?int $age = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $image = null;
 
     #[ORM\Column]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?int $gender = null;
 
     #[ORM\ManyToOne(inversedBy: 'athletes')]
     private ?Delegation $codeDelegation = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $nationality = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'athletes')]
     private Collection $userLike;
 
     #[ORM\ManyToMany(targetEntity: Event::class, inversedBy: 'athletes')]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private Collection $events;
 
     #[ORM\ManyToMany(targetEntity: Epreuve::class, inversedBy: 'athletes')]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private Collection $epreuves;
 
     #[ORM\Column(length: 255, nullable: true)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $city = null;
 
     #[ORM\ManyToMany(targetEntity: Record::class, inversedBy: 'athletes')]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private Collection $records;
 
     #[ORM\Column(nullable: true)]

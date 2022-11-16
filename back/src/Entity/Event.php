@@ -16,19 +16,19 @@ class Event
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $name = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?\DateTimeInterface $date = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['api_athlete_browse'])]
+    #[Groups(['api_athlete_browse', 'api_athlete_browseByLike'])]
     private ?string $location = null;
 
     #[ORM\ManyToMany(targetEntity: Athlete::class, mappedBy: 'events')]
