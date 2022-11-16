@@ -20,7 +20,7 @@ const Error_page = () => {
                 <div className='error_message'>
                     <h1>Page Introuvable</h1>
                     <p>
-                        <Link to="/" style={{textDecoration: 'none'}}>Retour à l'accueil</Link>
+                        <Link to="/home" style={{textDecoration: 'none'}}>Retour à l'accueil</Link>
                     </p>
                 </div>
             </div>
