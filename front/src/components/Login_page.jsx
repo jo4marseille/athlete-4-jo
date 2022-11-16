@@ -20,18 +20,28 @@ const Login_page = () => {
 
     const handleSubmit = () => {
         let data = { email: email_input, password: password_input };
-        axios
-            .post("link", data)
-            .then((response) => {
-                alert('success')
-                console.log('log response ' + response)
-                navigate('/home');
+        if (password_input.length > 1 && email_input.length > 1) {
+            axios
+                .post("http://localhost:8080/login", data)
+                .then((response) => {
+                    console.log('log response ' + JSON.stringify(response))
 
-            })
-            .catch((error) => {
-                console.log('log error ' + error);
-                setErrMsg('Username or password is wrong')
-            });
+                    if (response.data.password === password_input && response.data.email === email_input) {
+                        //alert('success')
+                        navigate('/home');
+                    }
+                    //navigate('/home');
+
+                })
+                .catch((error) => {
+                    console.log('log error ' + error);
+
+                });
+        }
+        else {
+            setErrMsg('Username or password is wrong')
+        }
+
     };
 
 
