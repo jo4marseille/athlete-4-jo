@@ -17,12 +17,8 @@ const Account_page = () => {
 
     return (
         <>
-            <Header />
             <div className="info_acc">
-                <h1>Informations du compte : </h1>
-                {data.map((acc) => (
-                    <p>Email : {acc.email}</p>
-                ))}
+                <h1>Déconnexion réussi!</h1>
             </div>
             <Footer />
         </>
