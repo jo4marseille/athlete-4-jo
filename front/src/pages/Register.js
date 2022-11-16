@@ -4,10 +4,11 @@ import Register_page from '../components/Register_page';
 
 const Register = () => {
     return (
-    <Register_page/>
+        <>
+            <Register_page />
+        </>
+
     );
 };
 
 export default Register;
-
-
